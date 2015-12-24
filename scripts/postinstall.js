@@ -2,6 +2,9 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 var ncp = require('ncp');
 
+// Package name
+var package = "n-core";
+
 // Paths
 var src = path.join(__dirname, '..', 'src');
 var dir = path.join(__dirname, '..', '..', '..', 'Assets', 'packages');

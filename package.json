@@ -1,11 +1,11 @@
 {
-  "name": "unity-core",
+  "name": "unity-n-core",
   "version": "0.0.1",
   "description": "Core",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shadowmint/package-unity-core.git"
+    "url": "git+https://github.com/shadowmint/unity-n-core.git"
   },
   "files": [
     "index.js",
@@ -15,9 +15,9 @@
   "author": "douglas.linder@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shadowmint/package-unity-core/issues"
+    "url": "https://github.com/shadowmint/unity-n-core/issues"
   },
-  "homepage": "https://github.com/shadowmint/package-unity-core",
+  "homepage": "https://github.com/shadowmint/unity-n-core",
   "scripts": {
     "postinstall": "node scripts/postinstall.js"
   },
