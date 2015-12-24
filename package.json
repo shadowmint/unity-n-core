@@ -1,0 +1,30 @@
+{
+  "name": "unity-core",
+  "version": "0.0.1",
+  "description": "Core",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowmint/package-unity-core.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "src"
+  ],
+  "author": "douglas.linder@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shadowmint/package-unity-core/issues"
+  },
+  "homepage": "https://github.com/shadowmint/package-unity-core",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+    "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
