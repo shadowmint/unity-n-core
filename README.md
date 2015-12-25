@@ -6,7 +6,7 @@ This is the core of the N framework, containing common
 utilities like test runners, options, object pools, events,
 etc.
 
-## Usage
+## Install
 
 From your unity project folder:
 
