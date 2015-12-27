@@ -4,22 +4,7 @@ A unity package providing some basic unity helper scripts.
 
 ## Usage
 
-See the individual source files for examples; most have tests embedded
-at the end like this:
-
-    #if UNITY_EDITOR
-
-        /// Test function
-        public class EventsTests : TestSuite
-        {
-            public void test_event_name()
-            {
-                var instance = new TestEvent1();
-                Assert(instance.Name == "N.TestEvent1");
-            }
-        }
-
-    #endif
+See the tests in the `Editor/` folder for each class for usage examples.
 
 ## Install
 
