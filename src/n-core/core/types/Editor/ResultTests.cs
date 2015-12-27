@@ -4,7 +4,6 @@ using NUnit.Framework;
 
 public class ResultTests : N.Tests.Test
 {
-    [Test]
     public Result<int, string> testFixture(int value)
     {
         if (value > 0)

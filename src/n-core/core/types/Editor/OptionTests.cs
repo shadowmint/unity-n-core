@@ -85,7 +85,6 @@ public class OptionTests : N.Tests.Test
         Assert(caught, "Failed to throw an exception on invalid unrwap");
     }
 
-    [Test]
     public Option<int> testFixture(int value)
     {
         if (value > 0)

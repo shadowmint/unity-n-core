@@ -44,8 +44,10 @@ Library/shadercompiler-*
 node_modules
 Assets/build
 Assets/packages
+Assets/packages.meta
 manifest.json
 manifest.json.meta
 .vscode
 Library/CrashedAssetImports.txt
 
+EditorTestResults.xml
