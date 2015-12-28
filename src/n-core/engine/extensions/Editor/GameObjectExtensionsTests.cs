@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using System;
 using NUnit.Framework;
@@ -76,3 +77,4 @@ public class GameObjectExtensionsTests : N.Tests.Test
         this.TearDown();
     }
 }
+#endif

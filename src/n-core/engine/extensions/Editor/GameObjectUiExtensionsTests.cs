@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using UnityEngine.UI;
 using NUnit.Framework;
@@ -21,3 +22,4 @@ public class GameObjectUiExtensionsTests : N.Tests.Test
         Object.DestroyImmediate(obj);
     }
 }
+#endif

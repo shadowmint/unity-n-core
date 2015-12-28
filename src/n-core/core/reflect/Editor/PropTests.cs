@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
@@ -130,3 +131,4 @@ public class PropTests : N.Tests.Test
         Assert(other.value == 100);
     }
 }
+#endif

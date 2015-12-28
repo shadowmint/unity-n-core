@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using NUnit.Framework;
 using N;
@@ -21,3 +22,4 @@ public class TimerTests : N.Tests.Test
         Assert(counter == 2);
     }
 }
+#endif

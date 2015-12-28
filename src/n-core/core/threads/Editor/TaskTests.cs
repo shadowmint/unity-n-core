@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System;
 using System.Threading;
 using System.Collections.Generic;
@@ -38,3 +39,4 @@ public class TaskTests : N.Tests.Test
         Assert(counter > 0);
     }
 }
+#endif

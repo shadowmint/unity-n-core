@@ -26,3 +26,11 @@ Setup and run tests:
     cd test
     npm install
     gulp
+
+### Tests
+
+All tests are wrapped in `#if ...` blocks to prevent test spam.
+
+You can enable tests in: Player settings > Other Settings > Scripting Define Symbols
+
+The test key for this package is: N_CORE_TESTS

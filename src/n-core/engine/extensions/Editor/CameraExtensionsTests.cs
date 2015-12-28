@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using NUnit.Framework;
 using N;
@@ -20,3 +21,4 @@ public class CameraExtensionsTests : N.Tests.Test
         this.TearDown();
     }
 }
+#endif
