@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System;
 using N;
 using NUnit.Framework;
@@ -46,3 +47,4 @@ public class ResultTests : N.Tests.Test
         Assert(invalid == 1);
     }
 }
+#endif

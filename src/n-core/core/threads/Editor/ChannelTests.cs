@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System;
 using System.Threading;
 using System.Collections.Generic;
@@ -26,3 +27,4 @@ public class ChannelTests : N.Tests.Test
         Assert(val2.Unwrap() == this);
     }
 }
+#endif

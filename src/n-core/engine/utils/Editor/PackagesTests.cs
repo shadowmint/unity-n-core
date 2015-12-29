@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using N;
 using NUnit.Framework;
 
@@ -17,3 +18,4 @@ public class PackagesTests : N.Tests.Test
         Packages.Relative("package-assets/tests/");
     }
 }
+#endif

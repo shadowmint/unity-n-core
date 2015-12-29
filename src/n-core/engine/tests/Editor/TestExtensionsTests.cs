@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using N;
 using NUnit.Framework;
 
@@ -11,3 +12,4 @@ public class TestExtensionsTests : N.Tests.Test
         this.TearDown();
     }
 }
+#endif

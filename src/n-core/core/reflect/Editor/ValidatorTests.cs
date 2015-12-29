@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System.Collections.Generic;
 using System;
 using N;
@@ -154,3 +155,4 @@ public class ValidatorTests : N.Tests.Test
         Assert(errors.Length == 3);
     }
 }
+#endif

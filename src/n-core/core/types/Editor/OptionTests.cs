@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System;
 using NUnit.Framework;
 using N;
@@ -94,3 +95,4 @@ public class OptionTests : N.Tests.Test
         return Option.None<int>();
     }
 }
+#endif

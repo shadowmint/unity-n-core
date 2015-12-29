@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
@@ -72,3 +73,4 @@ public class TypeTests : N.Tests.Test
         Assert(Array.IndexOf(f5, "Bar2") != -1);
     }
 }
+#endif

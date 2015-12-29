@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 ﻿using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
@@ -53,3 +54,4 @@ public class EnumTests : N.Tests.Test
         Assert(invalid.IsNone);
     }
 }
+#endif

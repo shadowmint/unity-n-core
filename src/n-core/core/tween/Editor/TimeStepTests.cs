@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using N.Tests;
 using NUnit.Framework;
 using N.Tween;
@@ -36,3 +37,4 @@ public class TimeStepTests : N.Tests.Test
         Assert(step.Value == 5f);
     }
 }
+#endif

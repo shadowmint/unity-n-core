@@ -4,7 +4,9 @@
   "description": "",
   "author": "",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "unity-n-core": ".."
+  },
   "devDependencies": {
     "babel-core": "^5.8.23",
     "colors": "^1.1.2",

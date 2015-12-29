@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using N.Tween;
 using NUnit.Framework;
 
@@ -48,3 +49,4 @@ public class StepTests : N.Tests.Test
         Assert(step.Value == 0f);
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -21,3 +22,4 @@ public class ConsoleTests : N.Tests.Test
         N.Console.DEBUG = false;
     }
 }
+#endif

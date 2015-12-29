@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -35,3 +36,4 @@ public class PromiseTests : N.Tests.Test
         Assert(rejected);
     }
 }
+#endif

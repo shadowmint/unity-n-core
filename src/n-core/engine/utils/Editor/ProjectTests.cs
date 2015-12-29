@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using N;
 using NUnit.Framework;
 
@@ -15,3 +16,4 @@ public class ProjectTests : N.Tests.Test
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if N_CORE_TESTS
 using NUnit.Framework;
 using N;
 using Foo;
@@ -82,3 +83,4 @@ public class EventsTests : N.Tests.Test
         Assert(events == 1);
     }
 }
+#endif
