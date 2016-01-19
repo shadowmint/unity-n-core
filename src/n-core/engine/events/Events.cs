@@ -5,14 +5,12 @@ using N;
 
 namespace N
 {
-
     /// Bind an event listener for a click on the target
     public delegate void EventHandler(Event item);
 
     /// Base type for events
     public abstract class Event
     {
-
         /// Return name of this event
         public string Name { get { return N.Reflect.Type.Name(this); } }
 
@@ -32,7 +30,6 @@ namespace N
     /// A collection of event handlers
     public class Events
     {
-
         /// The timer we use for this event handler, if any
         private bool hasTimer;
 
