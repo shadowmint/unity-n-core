@@ -11,6 +11,9 @@ namespace N
     /// A variety of utility functions for use in editor scripts
     public class Project
     {
+        /// If you need a higher limit, set this
+        public static int MAX_OUTPUT_COUNT = 5000;
+
         /// Find folders
         public static string[] Files(string pattern)
         {
@@ -72,33 +75,13 @@ namespace N
         /// Search through files in the Assets folder
         public static void Find(List<string> container, string path, Regex matcher, bool files, bool dirs, bool recurse)
         {
-            var di = new DirectoryInfo(path);
-            foreach (var info in di.GetDirectories())
+            foreach (var target in N.File.EnumerateFiles(path, files, dirs, recurse, MAX_OUTPUT_COUNT))
             {
-                var target = info.ToString();
-                if (recurse)
-                {
-                    Project.Find(container, target, matcher, files, dirs, recurse);
-                }
-                if (dirs)
+                if (!target.EndsWith(".meta"))
                 {
                     if (matcher.Matches(target).Count > 0)
                     {
                         container.Add(target);
-                    }
-                }
-            }
-            if (files)
-            {
-                foreach (var info in di.GetFiles())
-                {
-                    var target = info.ToString();
-                    if (!target.EndsWith(".meta"))
-                    {
-                        if (matcher.Matches(target).Count > 0)
-                        {
-                            container.Add(target);
-                        }
                     }
                 }
             }

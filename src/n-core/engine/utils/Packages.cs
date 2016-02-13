@@ -13,15 +13,17 @@ namespace N
         public static Option<string> Root(bool absolutePath = false)
         {
             var assets = Project.Assets(true);
-            var matches = Directory.GetFiles(assets.ToString(), ".nmarker", SearchOption.AllDirectories);
-            if (matches.Length > 0)
+            foreach (var filename in N.File.EnumerateFiles(assets.ToString()))
             {
-                var path = matches[0].Substring(0, matches[0].Length - ".nmarker".Length - 1);
-                if (absolutePath)
+                if (filename.EndsWith(".nmarker"))
                 {
-                    return Option.Some(path);
+                    var path = filename.Substring(0, filename.Length - ".nmarker".Length - 1);
+                    if (absolutePath)
+                    {
+                        return Option.Some(path);
+                    }
+                    return Option.Some(ToRelative(path));
                 }
-                return Option.Some(ToRelative(path));
             }
             return Option.None<string>();
         }
