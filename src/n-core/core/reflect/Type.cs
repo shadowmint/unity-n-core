@@ -141,5 +141,28 @@ namespace N.Reflect
         {
             return instance is T;
         }
+
+        /// Find all classes with the interface T
+        public static IEnumerable<System.Type> Find<T>() where T : class
+        {
+            foreach (var currentAssembly in System.AppDomain.CurrentDomain.GetAssemblies())
+            {
+                var types = currentAssembly.GetTypes();
+                foreach (var type in types)
+                {
+                    if (Type.Implements<T>(type))
+                    {
+                        yield return type;
+                    }
+                }
+            }
+        }
+
+        /// Check if a type implements an interface
+        /// Also requires IsPublic and the implementer is not an interface.
+        public static bool Implements<T>(System.Type type)
+        {
+            return typeof(T).IsAssignableFrom(type) && type.IsPublic && !type.IsInterface && !type.IsAbstract;
+        }
     }
 }
