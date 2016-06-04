@@ -100,6 +100,24 @@ namespace N
             return target.GetComponent<T>() != null;
         }
 
+        /// Get a component in the heirarchy of parent objects
+        public static Option<T> GetComponentInParents<T>(this GameObject target)
+        {
+            while (target != null)
+            {
+                var instance = target.GetComponent<T>();
+                if (instance != null)
+                {
+                    return Option.Some(instance);
+                }
+                if (target.transform.parent != null)
+                {
+                    target = target.transform.parent.gameObject;
+                }
+            }
+            return Option.None<T>();
+        }
+
         /// Raise an exception if the required component is missing
         /// @param target The game object to work on
         /// @param autoFabricate True to make and return missing instance, false to raise an exception if missing.
