@@ -11,15 +11,13 @@ namespace N
         /// Layers is a list of layer ids; it is converted into a layer mask.
         public static bool IsGrounded(GameObject root, Vector3 down, float maxDistance, float baseHalfSize, int[] layers)
         {
-            RaycastHit hitInfo;
             var layerMask = LayerMask(layers);
-            return Physics.SphereCast(
+            return Physics.SphereCastAll(
                 root.transform.position,
                 baseHalfSize,
                 down,
-                out hitInfo,
                 maxDistance,
-                layerMask);
+                layerMask).Length > 0;
         }
 
         /// Get a layer mask from a layers array or 0
