@@ -28,6 +28,20 @@ namespace N
             return Option.None<GameObject>();
         }
 
+        /// Find all elements with a given tag
+        public static IEnumerable<GameObject> FindAll(string tag, GameObject heirarchy)
+        {
+            if (heirarchy != null) {
+                foreach (var instance in heirarchy.GetComponentsInChildren<Marker>())
+                {
+                    if (instance.markerTag == tag)
+                    {
+                        yield return instance.gameObject;
+                    }
+                }
+            }
+        }
+
         /// Populate a dictionary of objects from a heirarchy
         public static Option<Dictionary<string, GameObject>> Find(string[] tags, GameObject heirarchy)
         {
