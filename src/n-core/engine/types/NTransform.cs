@@ -3,6 +3,7 @@ using UnityEngine;
 namespace N
 {
     /// A cloneable simple representation of a Transform component
+    [System.Serializable]
     public struct NTransform
     {
         /// The position
