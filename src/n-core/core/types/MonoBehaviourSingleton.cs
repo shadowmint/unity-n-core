@@ -1,12 +1,14 @@
 using UnityEngine;
 
-namespace N {
+namespace N 
+{
     /// <summary>
     /// Extend this class if you want your monobehaviour to be a singleton!
     /// Your child class should implement Init() rather than Awake()
     /// </summary>
     /// <typeparam name="T">The concrete type of your extending class</typeparam>
-    public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviourSingleton<T> {
+    public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviourSingleton<T>
+    {
         static T instance;
 
         /// <summary>
@@ -23,17 +25,7 @@ namespace N {
                 // This would only EVER be null if some other MonoBehavior requests the instance
                 // in its' Awake method.
                 if(instance == null) {
-                    Debug.Log("[MonoBehaviourSingleton] Finding instance of '" + typeof(T).ToString() + 
-                            "' object.");
-                    instance = FindObjectOfType(typeof(T)) as T;
-                    // This should only occur if 'T' hasn't been attached to any game
-                    // objects in the scene.
-                    if(instance == null) {
-                        Debug.LogError("[MonoBehaviourSingleton] No instance of " + typeof(T).ToString()
-                                    + "found!");
-                        return null;
-                    }
-                    instance.Init();
+                    createInstance();
                 }
                 return instance;
             }
@@ -68,6 +60,38 @@ namespace N {
 
         void OnApplicationQuit() {
             instance = null;
+        }
+        
+        private static void createInstance() {
+            Debug.Log(
+                "[MonoBehaviourSingleton] Finding instance of '" + 
+                typeof(T).ToString() + "' object."
+            );
+            instance = FindObjectOfType(typeof(T)) as T;
+            // This should only occur if 'T' hasn't been attached to any game
+            // objects in the scene.
+            if(instance == null)
+            {
+                if (typeof(IAutoSingleton).IsAssignableFrom(typeof(T)))
+                {
+                    var gameObject = new GameObject();
+                    instance = gameObject.AddComponent<T>();
+                    instance.transform.name =
+                        ((IAutoSingleton)instance).AutoSingletonName; 
+                } else {
+                    Debug.LogError(
+                        "[MonoBehaviourSingleton] No instance of " +
+                        typeof(T).ToString() + " found!"
+                    );
+                    Debug.LogError(
+                        "[MonoBehaviourSingleton] Implement IAutoSingleton " +
+                        " for an auto-creating singleton"
+                    );
+                    instance = null;
+                    return;
+                }                        
+            }
+            instance.Init();
         }
     }
 }
