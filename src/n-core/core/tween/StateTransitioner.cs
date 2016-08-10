@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace N.Tween
+namespace N
 {
     /// <summary>
     /// This provides a convenient way of doing a reversible lerp in either direction
