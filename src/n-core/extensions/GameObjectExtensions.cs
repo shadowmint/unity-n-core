@@ -51,7 +51,7 @@ namespace N.Package.Core
     public static Vector2 RelativeMouseVector2(this GameObject target)
     {
       var objpos = target.ScreenCoordinates();
-      var mpos = Input.mousePosition;
+      var mpos = UnityEngine.Input.mousePosition;
       var rtn = mpos - objpos;
       return new Vector2(rtn[0], rtn[1]);
     }
