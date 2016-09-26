@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace N.Package.Core
 {
@@ -266,6 +269,40 @@ namespace N.Package.Core
       foreach (Transform child in self.transform)
       {
         Object.Destroy(child.gameObject);
+      }
+    }
+
+    /// Return the first instance of T in the heirarchy of parents or self or null.
+    public static T FindComponentInParents<T>(this GameObject self) where T :Component
+    {
+      var root = self.transform;
+      while (root != null)
+      {
+        var instance = root.gameObject.GetComponent<T>();
+        if (instance != null)
+        {
+          return instance;
+        }
+        root = root.parent;
+      }
+      return null;
+    }
+
+    /// Return the all instances of T in the heirarchy of parents or self or null.
+    public static IEnumerable<T> FindComponentsInParents<T>(this GameObject self) where T : Component
+    {
+      var root = self.transform;
+      while (root != null)
+      {
+        var items = root.gameObject.GetComponents<T>();
+        if (items != null)
+        {
+          foreach (var item in items)
+          {
+            yield return item;
+          }
+        }
+        root = root.parent;
       }
     }
   }
