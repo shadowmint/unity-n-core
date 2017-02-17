@@ -54,7 +54,7 @@ namespace N.Package.Core
       rtn.Position = Vector3.Lerp(a.Position, b.Position, value);
       rtn.Scale = Vector3.Lerp(a.Scale, b.Scale, value);
       rtn.Rotation = Quaternion.Lerp(a.Rotation, b.Rotation, value);
-      rtn.Normal = Vector3.Lerp(a.normal, b.normal, value);
+      rtn.Normal = Vector3.Lerp(a.Normal, b.Normal, value);
       rtn.Normal.Normalize();
       return rtn;
     }
