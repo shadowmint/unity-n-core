@@ -48,10 +48,9 @@ namespace N.Package.Core
                 Debug.Log("[MonoBehaviourSingleton] Initializing Singleton in Awake");
                 instance = this as T;
                 instance.Init();
-
-				if (persist)
-					DontDestroyOnLoad(gameObject);
-			}
+                if (persist)
+                    DontDestroyOnLoad(gameObject);
+            }
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace N.Package.Core
         
         private static void createInstance() {
 
-			Debug.Log(
+            Debug.Log(
                 "[MonoBehaviourSingleton] Finding instance of '" + 
                 typeof(T).ToString() + "' object."
             );
@@ -80,8 +79,7 @@ namespace N.Package.Core
                     instance = gameObject.AddComponent<T>();
                     instance.transform.name =
                         ((IAutoSingleton)instance).AutoSingletonName;
-				}
-				else {
+                } else {
                     Debug.LogError(
                         "[MonoBehaviourSingleton] No instance of " +
                         typeof(T).ToString() + " found!"
