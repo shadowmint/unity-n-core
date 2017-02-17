@@ -42,15 +42,16 @@ namespace N.Package.Core
         /// This will initialize our instance, if it hasn't already been prompted to do so by
         /// another MonoBehavior's Awake() requesting it first.
         /// </summary>
-        void Awake() {
+        public virtual void Awake() {
             Debug.Log("[MonoBehaviourSingleton] Awake");
             if(instance == null) {
                 Debug.Log("[MonoBehaviourSingleton] Initializing Singleton in Awake");
                 instance = this as T;
                 instance.Init();
-                if(persist)
-                    DontDestroyOnLoad(gameObject);
-            }
+
+				if (persist)
+					DontDestroyOnLoad(gameObject);
+			}
         }
 
         /// <summary>
@@ -63,7 +64,8 @@ namespace N.Package.Core
         }
         
         private static void createInstance() {
-            Debug.Log(
+
+			Debug.Log(
                 "[MonoBehaviourSingleton] Finding instance of '" + 
                 typeof(T).ToString() + "' object."
             );
@@ -77,8 +79,9 @@ namespace N.Package.Core
                     var gameObject = new GameObject();
                     instance = gameObject.AddComponent<T>();
                     instance.transform.name =
-                        ((IAutoSingleton)instance).AutoSingletonName; 
-                } else {
+                        ((IAutoSingleton)instance).AutoSingletonName;
+				}
+				else {
                     Debug.LogError(
                         "[MonoBehaviourSingleton] No instance of " +
                         typeof(T).ToString() + " found!"
