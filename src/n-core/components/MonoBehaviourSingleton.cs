@@ -48,7 +48,7 @@ namespace N.Package.Core
                 Debug.Log("[MonoBehaviourSingleton] Initializing Singleton in Awake");
                 instance = this as T;
                 instance.Init();
-                if (persist)
+                if(persist)
                     DontDestroyOnLoad(gameObject);
             }
         }
@@ -77,8 +77,7 @@ namespace N.Package.Core
                 {
                     var gameObject = new GameObject();
                     instance = gameObject.AddComponent<T>();
-                    instance.transform.name =
-                        ((IAutoSingleton)instance).AutoSingletonName;
+                    instance.transform.name = ((IAutoSingleton)instance).AutoSingletonName;
                 } else {
                     Debug.LogError(
                         "[MonoBehaviourSingleton] No instance of " +
@@ -90,7 +89,7 @@ namespace N.Package.Core
                     );
                     instance = null;
                     return;
-                }                        
+                }
             }
             instance.Init();
         }
