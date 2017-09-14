@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace N.Package.Core 
+namespace N.Package.Core
 {
     /// <summary>
     /// Extend this class if you want your monobehaviour to be a singleton!
@@ -20,13 +20,13 @@ namespace N.Package.Core
         /// <summary>
         /// The instance of this Singleton Monobehaviour
         /// </summary>
-        public static T Instance {
-            get {
+        public static T Instance
+        {
+            get
+            {
                 // This would only EVER be null if some other MonoBehavior requests the instance
                 // in its' Awake method.
-                if(instance == null) {
-                    createInstance();
-                }
+                if(instance == null) createInstance();
                 return instance;
             }
         }
@@ -42,9 +42,11 @@ namespace N.Package.Core
         /// This will initialize our instance, if it hasn't already been prompted to do so by
         /// another MonoBehavior's Awake() requesting it first.
         /// </summary>
-        void Awake() {
+        private void Awake()
+        {
             Debug.Log("[MonoBehaviourSingleton] Awake");
-            if(instance == null) {
+            if(instance == null)
+            {
                 Debug.Log("[MonoBehaviourSingleton] Initializing Singleton in Awake");
                 instance = this as T;
                 instance.Init();
@@ -58,13 +60,15 @@ namespace N.Package.Core
         /// </summary>
         virtual protected void Init() { }
 
-        public void OnApplicationQuit() {
+        public void OnApplicationQuit()
+        {
             instance = null;
         }
-        
-        private static void createInstance() {
+
+        private static void createInstance()
+        {
             Debug.Log(
-                "[MonoBehaviourSingleton] Finding instance of '" + 
+                "[MonoBehaviourSingleton] Finding instance of '" +
                 typeof(T).ToString() + "' object."
             );
             instance = FindObjectOfType(typeof(T)) as T;
@@ -76,8 +80,7 @@ namespace N.Package.Core
                 {
                     var gameObject = new GameObject();
                     instance = gameObject.AddComponent<T>();
-                    instance.transform.name =
-                        ((IAutoSingleton)instance).AutoSingletonName; 
+                    instance.transform.name = ((IAutoSingleton)instance).AutoSingletonName;
                 } else {
                     Debug.LogError(
                         "[MonoBehaviourSingleton] No instance of " +
@@ -89,7 +92,7 @@ namespace N.Package.Core
                     );
                     instance = null;
                     return;
-                }                        
+                }
             }
             instance.Init();
         }
