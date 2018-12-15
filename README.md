@@ -2,6 +2,14 @@
 
 A unity package providing some basic unity helper scripts.
 
+**Depreciated**
+
+This package is depreciated and will no longer receive updates; in general this sort
+of 'kitchen sink' package should be avoided; it is replaced by the smaller packages
+with specific contents listed on:
+
+https://github.com/shadowmint/unity-packages
+
 ## Usage
 
 See the tests in the `Editor/` folder for each class for usage examples.
